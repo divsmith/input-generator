@@ -16,13 +16,11 @@ public class Sequential {
         }
 
         int total = 0;
-        int columns = 0;
-        String filename = args[2];
+        String filename = args[1];
 
         try
         {
             total = Integer.parseInt(args[0]);
-            columns = Integer.parseInt(args[1]);
         }
         catch (NumberFormatException e)
         {
@@ -31,22 +29,12 @@ public class Sequential {
 
         BufferedWriter out = new BufferedWriter(new FileWriter(filename));
 
-        int currentColumn = 1;
-
-        for (int i = 0; i < total; i++)
+        for (int i = 0; i < total - 1; i++)
         {
             out.write(Integer.toString(i));
-
-            if (currentColumn == columns)
-            {
-                out.write(new String("\n"));
-                currentColumn = 1;
-            }
-            else
-            {
-                out.write(new String(" "));
-                currentColumn++;
-            }
+            out.write(new String(" "));
+            out.write(Integer.toString(i + 1));
+            out.write(new String("\n"));
         }
 
         out.close();
@@ -54,7 +42,7 @@ public class Sequential {
 
     public static void usage()
     {
-        System.out.println("Usage: java Sequential {total} {columns} {filename}");
+        System.out.println("Usage: java Sequential {total} {filename}");
         System.exit(0);
     }
 }
