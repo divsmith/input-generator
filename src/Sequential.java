@@ -29,6 +29,9 @@ public class Sequential {
 
         BufferedWriter out = new BufferedWriter(new FileWriter(filename));
 
+        out.write(Integer.toString(total));
+        out.write(new String("\n"));
+
         for (int i = 0; i < total - 1; i++)
         {
             out.write(Integer.toString(i));
