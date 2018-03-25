@@ -10,6 +10,11 @@ public class Sequential {
 
     public static void main(String args[]) throws IOException
     {
+        if (args.length < 2)
+        {
+            usage();
+        }
+
         int total = 0;
         int columns = 0;
         String filename = args[2];
@@ -50,5 +55,6 @@ public class Sequential {
     public static void usage()
     {
         System.out.println("Usage: java Sequential {total} {columns} {filename}");
+        System.exit(0);
     }
 }
